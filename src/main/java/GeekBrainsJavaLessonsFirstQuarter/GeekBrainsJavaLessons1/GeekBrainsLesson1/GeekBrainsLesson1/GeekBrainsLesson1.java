@@ -2,7 +2,6 @@ package GeekBrainsJavaLessonsFirstQuarter.GeekBrainsJavaLessons1.GeekBrainsLesso
 
 import java.util.Scanner;
 
-
 public class GeekBrainsLesson1 {
 
     public static float calculate(float a, float b, float c, float d) {
@@ -58,7 +57,7 @@ public class GeekBrainsLesson1 {
 
         // region  1. Создать переменные всех пройденных типов данных и инициализировать их значения.
         {
-            short hello = 0000;
+            short hello = 0;
             int _m = 1;
             long y = 2L;
             float n = 3.45f;
