@@ -57,7 +57,7 @@ public class GeekBrainsLesson1 {
 
         // region  1. Создать переменные всех пройденных типов данных и инициализировать их значения.
         {
-            short hello = 0;
+            short hello = 00;
             int _m = 1;
             long y = 2L;
             float n = 3.45f;
