@@ -25,33 +25,42 @@ public class Main {
     public static Cat cat = new Cat(25);
     public static Robot robot = new Robot(30);
     public static Human human = new Human(20);
-    public static RunningTrack runningTrack = new RunningTrack(random.nextInt(3) + 2);
-    public static Wall wall = new Wall(random.nextInt(2) + 1);
+    public static RunningTrack runningTrack = new RunningTrack();
+    public static Wall wall = new Wall();
     public static Object[] objects = {runningTrack, wall};
     public static Actions[] participants = {cat, robot, human};
 
+    public static void win(int i) {
+        if (i == 10) {
+            System.out.println("Участник преодолел всю полосу препятствий.");
+        }
+
+    }
+
     public static void main(String[] args) {
 
+        int i;
         for (Actions participant : participants) {
-            for (int i = 1; i <= 10; i++) {
+            for (i = 1; i <= 10; i++) {
                 if (objects[random.nextInt(2)] instanceof Wall) {
+                    wall = new Wall(random.nextInt(2) + 1);
                     if (participant.jum(wall)) {
-                        if (i == 10) {
-                            System.out.println("Участник преодолел полосу препятствий");
-                        }
-
+                        win(i);
                     } else {
                         break;
                     }
                 } else {
-                    if (participant.run(runningTrack)) {if (i == 10) {
-                        System.out.println("Участник преодолел полосу препятствий");
-                    }
+                    runningTrack = new RunningTrack(random.nextInt(3) + 2);
+                    if (participant.run(runningTrack)) {
+                        win(i);
                     } else {
                         break;
                     }
                 }
+
+
             }
+
             System.out.println();
         }
     }

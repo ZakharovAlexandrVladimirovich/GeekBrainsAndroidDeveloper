@@ -18,7 +18,7 @@ public class Human implements Actions {
             System.out.println("Человек не смог преодолеть препятствие. И покидает полосу препятствий.");
             return false;
         }
-        System.out.println("Человек перепрыгнул препятствие");
+        System.out.printf("Человек перепрыгнул препятствие высотой %d метра.\n",wall.getHeight());
         this.stamina -= wall.getHeight();
         return true;
     }
@@ -29,16 +29,8 @@ public class Human implements Actions {
             System.out.println("Человек не смог преодолеть препятствие. И покидает полосу препятствий.");
             return false;
         }
-        System.out.println("Человек пробежал дистанцию");
+        System.out.printf("Человек пробежал дистанцию %d метров.\n", runningTrack.getLength());
         this.stamina -= runningTrack.getLength();
         return true;
-    }
-
-    public int getStamina() {
-        return stamina;
-    }
-
-    public void setStamina(int stamina) {
-        this.stamina = stamina;
     }
 }

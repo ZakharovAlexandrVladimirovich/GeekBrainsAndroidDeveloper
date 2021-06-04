@@ -17,7 +17,7 @@ public class Robot implements Actions {
             System.out.println("Робот не смог преодолеть препятствие. И покидает полосу препятствий.");
             return false;
         }
-        System.out.println("Робот перепрыгнул препятствие");
+        System.out.printf("Робот перепрыгнул препятствие высотой %d метра.\n",wall.getHeight());
         this.stamina -= wall.getHeight();
         return true;
     }
@@ -28,16 +28,8 @@ public class Robot implements Actions {
             System.out.println("Робот не смог преодолеть препятствие. И покидает полосу препятствий.");
             return false;
         }
-        System.out.println("Робот пробежал дистанцию");
+        System.out.printf("Робот пробежал дистанцию %d метров.\n", runningTrack.getLength());
         this.stamina -= runningTrack.getLength();
         return true;
-    }
-
-    public int getStamina() {
-        return stamina;
-    }
-
-    public void setStamina(int stamina) {
-        this.stamina = stamina;
     }
 }

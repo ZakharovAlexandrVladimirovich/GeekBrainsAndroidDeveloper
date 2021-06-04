@@ -3,6 +3,10 @@ package GeekBrainsJavaLessonsFirstQuarter.GeekBrainsLesson8.Barrier;
 public class RunningTrack {
     private int length;
 
+    public RunningTrack() {
+
+    }
+
     public RunningTrack(int length) {
         this.length = length;
     }
