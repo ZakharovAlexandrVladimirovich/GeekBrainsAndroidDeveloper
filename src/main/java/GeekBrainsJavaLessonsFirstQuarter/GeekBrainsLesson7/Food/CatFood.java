@@ -6,17 +6,26 @@ public class CatFood {
     private int weight;
     private int portion;
 
-
     public CatFood(String name, int weight, int portion) {
         this.name = name;
         this.weight = weight;
         this.portion = portion;
     }
-
-
-
-
-
+    public  boolean catFoodInfo() {
+        if (this.weight == 0) {
+            System.out.printf("%s закончился.\n", this.name);
+            return true;
+        }
+        System.out.printf("Корма осталось %d кг\n", this.weight - this.portion);
+        return false;
+    }
+    public  void addCatFoodToPlate(Plate plate) {
+        if (catFoodInfo()) {
+            return;
+        }
+        this.weight-= this.portion;
+        plate.setFood(plate.getFood() + this.portion);
+    }
 
     public String getName() {
         return name;
