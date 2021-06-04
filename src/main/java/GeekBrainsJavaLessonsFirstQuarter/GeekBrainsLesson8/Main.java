@@ -1,6 +1,6 @@
 package GeekBrainsJavaLessonsFirstQuarter.GeekBrainsLesson8;
 
-import GeekBrainsJavaLessonsFirstQuarter.GeekBrainsLesson8.Barrier.Actions;
+import GeekBrainsJavaLessonsFirstQuarter.GeekBrainsLesson8.Participant.Actions;
 import GeekBrainsJavaLessonsFirstQuarter.GeekBrainsLesson8.Barrier.RunningTrack;
 import GeekBrainsJavaLessonsFirstQuarter.GeekBrainsLesson8.Barrier.Wall;
 import GeekBrainsJavaLessonsFirstQuarter.GeekBrainsLesson8.Participant.Cat;
