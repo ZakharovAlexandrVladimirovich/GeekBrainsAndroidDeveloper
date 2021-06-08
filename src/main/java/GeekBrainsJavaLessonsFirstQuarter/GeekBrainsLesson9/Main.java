@@ -6,7 +6,6 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
-    public static String[][] strings = new String[4][4];
     public static File file = new File("Lesson9");
     public static Scanner scanner;
 
@@ -17,6 +16,8 @@ public class Main {
             System.err.println("Файл не найден");
         }
     }
+
+    public static String[][] strings = new String[4][4];
 
     static {
         while (scanner.hasNextLine()) {
@@ -68,7 +69,7 @@ public class Main {
         return false;
     }
 
-    private static boolean isItNumber(String s) throws NumberFormatException {
+    private static boolean isItNumber(String s){
         try {
             Integer.parseInt(s);
             return true;
@@ -81,10 +82,8 @@ public class Main {
         System.out.println(Arrays.deepToString(strings));
         try {
             string(strings);
-        } catch (MyArrayDataException e) {
-            System.out.println("Привект");
-        } catch (MyArraySizeException e) {
-            e.printStackTrace();
+        } catch (MyArrayDataException | MyArraySizeException e) {
+           e.printStackTrace();
         }
     }
 }
