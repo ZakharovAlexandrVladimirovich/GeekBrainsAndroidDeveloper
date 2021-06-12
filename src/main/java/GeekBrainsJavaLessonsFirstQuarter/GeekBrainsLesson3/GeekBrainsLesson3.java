@@ -70,14 +70,6 @@ class GeekBrainsLesson3 {
 
         while (--maxTryCount >= 0) {
             int myAnswer = not_A_Number();
-
-            if (maxTryCount == 0) {
-                System.out.println("\n\nК сожалению Ваши попытки закончились!!!");
-                System.out.println("  Не расстраивайтесь и начните заново.\n\n");
-//                System.exit(0);
-                return true;
-
-            }
             if (myAnswer == pcNumber) {
                 System.out.printf("%25d = %d\n", myAnswer, pcNumber);
                 System.out.print("         Невероятно, вы угадали моё число!!! ");
@@ -89,6 +81,12 @@ class GeekBrainsLesson3 {
                 }
                 System.out.println("\n         --------Вы прошли уровень.---------");
                 return false;
+            }
+            if (maxTryCount == 0) {
+                System.out.println("\n\nК сожалению Ваши попытки закончились!!!");
+                System.out.println("  Не расстраивайтесь и начните заново.\n\n");
+//                System.exit(0);
+                return true;
             }
             if (maxTryCount < 2) {
                 System.out.println("Напряги извилины или тебе не видить секретного уровня!!!");
