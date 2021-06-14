@@ -49,6 +49,7 @@ public class PhoneBook {
         PhoneBook.add("Миша", 77777);
 
         PhoneBook.list();
+        System.out.println();
         PhoneBook.get("Саша");
 
     }
