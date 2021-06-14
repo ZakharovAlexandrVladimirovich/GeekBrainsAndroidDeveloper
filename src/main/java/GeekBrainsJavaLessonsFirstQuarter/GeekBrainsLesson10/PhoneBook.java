@@ -1,4 +1,4 @@
-package GeekBrainsJavaLessonsFirstQuarter.GeekBrainsLesson11;
+package GeekBrainsJavaLessonsFirstQuarter.GeekBrainsLesson10;
 import java.util.*;
 
 //        3. Написать простой класс Телефонный Справочник, который хранит в себе список фамилий и телефонных номеров.

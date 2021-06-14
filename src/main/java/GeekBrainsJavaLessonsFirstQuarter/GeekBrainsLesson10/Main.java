@@ -1,4 +1,4 @@
-package GeekBrainsJavaLessonsFirstQuarter.GeekBrainsLesson11;
+package GeekBrainsJavaLessonsFirstQuarter.GeekBrainsLesson10;
 
 import java.util.*;
 
