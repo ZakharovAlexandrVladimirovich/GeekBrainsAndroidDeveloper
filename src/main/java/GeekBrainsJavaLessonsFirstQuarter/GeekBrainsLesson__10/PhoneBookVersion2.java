@@ -1,57 +1,49 @@
 package GeekBrainsJavaLessonsFirstQuarter.GeekBrainsLesson__10;
 
 import java.util.*;
+import java.lang.*;
 
 //        3. Написать простой класс Телефонный Справочник, который хранит в себе список фамилий и телефонных номеров.
 //           В этот телефонный справочник с помощью метода add() можно добавлять записи, а с помощью метода get()
 //           искать номер телефона по фамилии.Следует учесть, что под одной фамилией может быть несколько телефонов
 //           (несколько номеров у одного человека), тогда при запросе такой фамилии должны выводиться все телефоны.
 //           Нет смысла хранить для одного человека несколько одинаковых номеров.
-public class PhoneBook {
+class PhoneBookVersion2 {
+    private static final HashMap<String, HashSet<String>> phoneBookMap = new HashMap<>();
 
-    public static String name;
-    public static String number;
-    public static HashMap<Integer, String> mapBook = new HashMap<>();
-
-
-    public static void add(String name, int number) {
-        mapBook.put(number, name);
-    }
-
-    public static void get(String name) {
-
-        for (Map.Entry<Integer, String> o : mapBook.entrySet()) {
-            if (name.equals(o.getValue())) {
-                System.out.printf("Телефон %s - ", name);
-                System.out.println(o.getKey());
-            }
+    public static void add(String keyName, String valuePhoneNumber) {
+        HashSet<String> phoneNumberSet;
+        if (phoneBookMap.containsKey(keyName)) {
+            phoneNumberSet = phoneBookMap.get(keyName);
+        } else {
+            phoneNumberSet = new HashSet<>();
         }
+        phoneNumberSet.add(valuePhoneNumber);
+        phoneBookMap.put(keyName, phoneNumberSet);
     }
 
     public static void list() {
-        for (Map.Entry<Integer, String> o : mapBook.entrySet()) {
+        for (Map.Entry<String, HashSet<String>> o : phoneBookMap.entrySet()) {
             System.out.printf("%s : %s\n", o.getKey(), o.getValue());
         }
     }
 
-    @Override
-    public int hashCode() {
+    public static Set<String> get(String surname) {
 
-        return name.hashCode();
+        return phoneBookMap.get(surname);
     }
 
     public static void main(String[] args) {
-        PhoneBook.add("Саша", 11111);
-        PhoneBook.add("Саша", 22222);
-        PhoneBook.add("Петя", 33333);
-        PhoneBook.add("Дима", 44444);
-        PhoneBook.add("Рома", 55555);
-        PhoneBook.add("Миша", 66666);
-        PhoneBook.add("Миша", 77777);
-
-        PhoneBook.list();
-
-        PhoneBook.get("Саша");
+        PhoneBookVersion2.add("Aleksandr", "89956249094");
+        PhoneBookVersion2.add("Roma", "89127777777");
+        PhoneBookVersion2.add("Vitaliy", "89123456789");
+        PhoneBookVersion2.add("Anna", "89143434343");
+        PhoneBookVersion2.add("Aleksandr", "89213709094");
+        System.out.println(phoneBookMap.get("Aleksandr"));
+        System.out.println(get("Aleksandr"));
+        list();
 
     }
+
 }
+
