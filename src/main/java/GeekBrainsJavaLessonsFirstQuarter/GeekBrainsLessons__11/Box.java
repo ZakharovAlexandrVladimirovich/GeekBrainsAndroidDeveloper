@@ -35,12 +35,10 @@ public class Box<T extends Fruit> {
             System.out.println("Коробки разные по весу:");
         }
     }
-//    public void transfer(ArrayList<T> TBox){
-//        if (this. instanceof Apple){
-//
-//        }
-//
-//    }
+    public void transfer(ArrayList<T> TBox){
+
+
+    }
 
 
     public ArrayList<Apple> getApplesBox() {

@@ -28,6 +28,7 @@ import java.util.ArrayList;
 
 
 public class Main {
+
     public static Apple apple = new Apple("Яблоко", 1);
     public static Orange orange = new Orange("Апельсин", 2);
     public static Box<Apple> appleBox = new Box<>();
@@ -36,7 +37,6 @@ public class Main {
     public static ArrayList<Orange> orangesBox = new ArrayList<>();
 
     public static void main(String[] args) {
-
         for (int i = 0; i < 10; i++) {
             appleBox.addFruitInBox(apple);
         }

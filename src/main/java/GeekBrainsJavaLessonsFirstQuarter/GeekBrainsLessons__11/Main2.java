@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Main2 {
-    public static void Permutation(){
+    public static void permutation(){
 
 
     }
