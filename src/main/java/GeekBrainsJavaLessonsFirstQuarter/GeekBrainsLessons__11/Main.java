@@ -24,38 +24,51 @@ package GeekBrainsJavaLessonsFirstQuarter.GeekBrainsLessons__11;
 //      g. Не забываем про метод добавления фрукта в коробку.
 //endregion
 
-import java.util.ArrayList;
-
 
 public class Main {
 
-    public static Apple apple = new Apple("Яблоко", 1);
+    public static Fruit apple = new Apple("Яблоко", 1);
     public static Orange orange = new Orange("Апельсин", 2);
     public static Box<Apple> appleBox = new Box<>();
-    public static ArrayList<Apple> applesBox = new ArrayList<>();
+    public static Box<Apple> appleBox2 = new Box<>();
     public static Box<Orange> orangeBox = new Box<>();
-    public static ArrayList<Orange> orangesBox = new ArrayList<>();
+
 
     public static void main(String[] args) {
         for (int i = 0; i < 10; i++) {
-            appleBox.addFruitInBox(apple);
+            appleBox.addFruitInBox((Apple) apple);
         }
 
-        for (Apple apple : appleBox.getApplesBox()) {
+        for (Apple apple : appleBox.gettFruit()) {
             System.out.println(apple.getName());
         }
 
-        System.out.println(appleBox.getApplesBox());
+        System.out.println(appleBox.gettFruit());
 
 
         for (int i = 0; i < 10; i++) {
             orangeBox.addFruitInBox(orange);
         }
 
-        appleBox.getWeight(applesBox);
-        orangeBox.getWeight(orangesBox);
+        appleBox.getWeight();
+        orangeBox.getWeight();
         appleBox.compare(orangeBox);
+
+        appleBox.transferTo(appleBox2);
+
+        for (Apple apple1 : appleBox2.gettFruit()) {
+            System.out.println(apple1.getName());
+        }
+        System.out.println(appleBox.gettFruit());
 
 
     }
+
+//    public void pourTo(Box<T> secondBox){
+//        for (T fruitFromFirstBox :
+//                box) {
+//            secondBox.getBox().add(fruitFromFirstBox);
+//        }
+//        box.clear();
+//    }
 }

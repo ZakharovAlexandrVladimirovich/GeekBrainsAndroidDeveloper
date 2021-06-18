@@ -35,5 +35,8 @@ public class Main2 {
 
         System.out.println(stringArrayList);
 
+//        public ArrayList<T> arrayToList(){
+//            return new ArrayList<>(Arrays.asList(this.array));
+//        }
     }
 }
