@@ -40,7 +40,13 @@ public class Main {
         for (int i = 0; i < 10; i++) {
             appleBox.addFruitInBox(apple);
         }
-        System.out.println(appleBox.toString());
+
+        for (Apple apple : appleBox.getApplesBox()) {
+            System.out.println(apple.getName());
+        }
+
+        System.out.println(appleBox.getApplesBox());
+
 
         for (int i = 0; i < 10; i++) {
             orangeBox.addFruitInBox(orange);
@@ -49,7 +55,6 @@ public class Main {
         appleBox.getWeight(applesBox);
         orangeBox.getWeight(orangesBox);
         appleBox.compare(orangeBox);
-
 
 
     }

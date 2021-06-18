@@ -67,4 +67,5 @@ public class Box<T extends Fruit> {
         this.weightBox = weightBox;
     }
 
+
 }

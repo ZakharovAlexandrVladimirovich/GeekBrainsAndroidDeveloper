@@ -1,6 +1,6 @@
 package GeekBrainsJavaLessonsFirstQuarter.GeekBrainsLessons__11;
 
-public class Fruit {
+abstract class Fruit {
     private String name;
     private int weight;
 
