@@ -13,7 +13,7 @@ public class Main2 {
         System.out.println(Arrays.toString(strings));
     }
     public static ArrayList<Object> arrayToList(String[] strings){
-        return new ArrayList<Object>(Arrays.asList((strings)));
+        return new ArrayList<>(Arrays.asList((strings)));
     }
     public static void main(String[] args) {
 //    1. Написать метод, который меняет два элемента массива местами (массив может быть любого ссылочного типа);
