@@ -64,11 +64,4 @@ public class Main {
 
     }
 
-//    public void pourTo(Box<T> secondBox){
-//        for (T fruitFromFirstBox :
-//                box) {
-//            secondBox.getBox().add(fruitFromFirstBox);
-//        }
-//        box.clear();
-//    }
 }

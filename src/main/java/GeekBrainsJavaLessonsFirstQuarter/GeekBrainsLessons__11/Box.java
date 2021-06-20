@@ -39,18 +39,9 @@ public class Box<T extends Fruit> {
         tBox.tFruit = this.tFruit;
         this.tFruit = null;
 
-
     }
 
     public ArrayList<T> gettFruit() {
         return tFruit;
-    }
-
-    public int getWeightBox() {
-        return weightBox;
-    }
-
-    public void setWeightBox(int weightBox) {
-        this.weightBox = weightBox;
     }
 }
