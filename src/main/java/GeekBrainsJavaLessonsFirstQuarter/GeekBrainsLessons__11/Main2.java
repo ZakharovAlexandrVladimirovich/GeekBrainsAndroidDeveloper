@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Main2 {
-   public static String[] strings = new String[]{"1", "2", "3", "4"};
     public static void permutation(String[] strings,int a, int b){
 
         String string = strings[a];
