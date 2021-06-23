@@ -46,7 +46,7 @@ package GeekBrainsJavaLessonsFirstQuarter.GeekBrainsLessons__12;
 
 import java.util.Arrays;
 
-public class Main {
+public class Main extends Thread {
     public static final int SIZE = 10_000_000;
     public static final int HALF = SIZE / 2;
     public static float[] arrays = new float[SIZE];
@@ -70,18 +70,23 @@ public class Main {
                         Math.cos(0.2f + (float) i / 5) * Math.cos(0.4f + (float) i / 2));
             }
             System.arraycopy(arrays1, 0, arrays3, 0, HALF);
+
         }).start();
+
     }
 
-    private static void extracted2() {
-        new Thread(() -> {
+    private static void extracted2() throws InterruptedException {
+
+        Thread thread = new Thread(() -> {
             System.arraycopy(arrays3, HALF, arrays2, 0, HALF);
             for (int i = 0; i < HALF; i++) {
                 arrays2[i] = (float) (arrays2[i] * Math.sin(0.2f + (float) i / 5) *
                         Math.cos(0.2f + (float) i / 5) * Math.cos(0.4f + (float) i / 2));
             }
             System.arraycopy(arrays2, 0, arrays3, HALF, HALF);
-        }).start();
+        });
+        thread.start();
+        thread.join();
     }
 
     public static void main(String[] args) throws InterruptedException {
@@ -104,6 +109,7 @@ public class Main {
         Thread.sleep(3000);
         System.out.println(Arrays.toString(arrays3));
         //endregion
+
 
     }
 
