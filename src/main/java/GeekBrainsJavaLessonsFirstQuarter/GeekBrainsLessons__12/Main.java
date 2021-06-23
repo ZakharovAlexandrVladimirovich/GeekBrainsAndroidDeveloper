@@ -64,25 +64,27 @@ public class Main {
 
     private static void extracted1() {
         new Thread(() -> {
-            System.arraycopy(arrays, 0, arrays1, 0, HALF);
+            System.arraycopy(arrays3, 0, arrays1, 0, HALF);
             for (int i = 0; i < HALF; i++) {
                 arrays1[i] = (float) (arrays1[i] * Math.sin(0.2f + (float) i / 5) *
                         Math.cos(0.2f + (float) i / 5) * Math.cos(0.4f + (float) i / 2));
             }
+            System.arraycopy(arrays1, 0, arrays3, 0, HALF);
         }).start();
     }
 
     private static void extracted2() {
         new Thread(() -> {
-            System.arraycopy(arrays, HALF, arrays2, 0, HALF);
+            System.arraycopy(arrays3, HALF, arrays2, 0, HALF);
             for (int i = 0; i < HALF; i++) {
                 arrays2[i] = (float) (arrays2[i] * Math.sin(0.2f + (float) i / 5) *
                         Math.cos(0.2f + (float) i / 5) * Math.cos(0.4f + (float) i / 2));
             }
+            System.arraycopy(arrays2, 0, arrays3, HALF, HALF);
         }).start();
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
         //region Вариант с Одним потоком:
         Arrays.fill(arrays, 1);
@@ -93,14 +95,14 @@ public class Main {
         //endregion
 
         //region Вариант с Двумя потоками:
-        Arrays.fill(arrays, 1);
+        Arrays.fill(arrays3, 1);
         long start1 = System.currentTimeMillis();
         extracted1();
         extracted2();
-        System.arraycopy(arrays1, 0, arrays3, 0, HALF);
-        System.arraycopy(arrays2, 0, arrays3, HALF, HALF);
         long end1 = System.currentTimeMillis();
         System.out.println(end1 - start1 + " Два Потока.");
+        Thread.sleep(3000);
+        System.out.println(Arrays.toString(arrays3));
         //endregion
 
     }
