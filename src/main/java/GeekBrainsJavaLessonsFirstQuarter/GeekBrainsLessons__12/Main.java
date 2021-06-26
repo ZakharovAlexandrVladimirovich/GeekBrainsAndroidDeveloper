@@ -46,7 +46,7 @@ package GeekBrainsJavaLessonsFirstQuarter.GeekBrainsLessons__12;
 
 import java.util.Arrays;
 
-public class Main extends Thread {
+public class Main{
     public static final int SIZE = 10_000_000;
     public static final int HALF = SIZE / 2;
     public static float[] arrays = new float[SIZE];
