@@ -1,4 +1,5 @@
-package GeekBrainsJavaLessonsFirstQuarter.GeekBrainsLessons__13.Track;
+package GeekBrainsJavaLessonsFirstQuarter.GeekBrainsLessons__13;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -13,4 +14,3 @@ public class Race {
         this.stages = new ArrayList<>(Arrays.asList(stages));
     }
 }
-

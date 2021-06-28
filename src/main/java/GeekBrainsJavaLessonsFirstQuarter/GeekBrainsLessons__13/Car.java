@@ -1,19 +1,27 @@
 package GeekBrainsJavaLessonsFirstQuarter.GeekBrainsLessons__13;
-import GeekBrainsJavaLessonsFirstQuarter.GeekBrainsLessons__13.Track.Race;
+
+import java.util.HashMap;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.CyclicBarrier;
-import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.Semaphore;
 
-
-public class Car implements Runnable {
-    private final static AtomicBoolean hasViner = new AtomicBoolean();
-    private CountDownLatch finishLatch;
+public class Car extends Thread implements Runnable{
     private static int CARS_COUNT;
     private Race race;
     private int speed;
     private String name;
+    CyclicBarrier cb;
+    CountDownLatch cd;
+    private static Object a = new Object();
+    private static int place;
+    private static HashMap<Integer, String> placeMap = new HashMap<>();
+    Semaphore semaphore;
 
-    public String getName() {
+    public static HashMap<Integer, String> getPlaceMap() {
+        return placeMap;
+    }
+
+    public String getCarName() {
         return name;
     }
 
@@ -21,11 +29,13 @@ public class Car implements Runnable {
         return speed;
     }
 
-    public Car(Race race, int speed) {
+    public Car(Race race, int speed, CyclicBarrier cb, CountDownLatch cd) {
         this.race = race;
         this.speed = speed;
         CARS_COUNT++;
         this.name = "Участник #" + CARS_COUNT;
+        this.cb = cb;
+        this.cd = cd;
     }
 
     @Override
@@ -34,32 +44,25 @@ public class Car implements Runnable {
             System.out.println(this.name + " готовится");
             Thread.sleep(500 + (int) (Math.random() * 800));
             System.out.println(this.name + " готов");
-            Thread.sleep(1000 + (int) (Math.random() * 800));
+            cb.await();
+            cd.countDown();
         } catch (Exception e) {
             e.printStackTrace();
         }
         for (int i = 0; i < race.getStages().size(); i++) {
             race.getStages().get(i).go(this);
         }
-        if (!hasViner.getAndSet(true)) {
-            System.out.printf("ВАЖНОЕ ОБЪЯВЛЕНИЕ >>> %s ПОБЕДИЛ<<<!!!\n", this.name);
-        } else {
-            System.out.println(this.name + " неудачник");
-        }
+        semaphore = new Semaphore(1);
         try {
-            finishLatch.countDown();
-        } catch (Exception e) {
-            System.out.println();
-        }finally {
-            System.out.printf("ВАЖНОЕ ОБЪЯВЛЕНИЕ >>> Гонка для %s закончилась!!!\n",this.name);
+            semaphore.acquire();
+            if (Thread.currentThread().isAlive()) {
+                place++;
+                placeMap.put(place, this.name);
+                System.out.println(this.name + " занял " + place + " место");
+                semaphore.release();
+            }
+        }catch (Exception e){
+            e.printStackTrace();
         }
-
-    }
-
-    public void setBarrier(CyclicBarrier barrier) {
-    }
-
-    public void setFinishLatch(CountDownLatch finishLatch) {
     }
 }
-
