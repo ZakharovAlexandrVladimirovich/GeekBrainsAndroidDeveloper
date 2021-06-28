@@ -12,7 +12,7 @@ public class MainClass {
     public static void main(String[] args) {
         CyclicBarrier cb = new CyclicBarrier(CARS_COUNT);
         CountDownLatch cd = new CountDownLatch(CARS_COUNT);
-        Semaphore semaphore = new Semaphore(CARS_COUNT/2);
+        Semaphore semaphore = new Semaphore(CARS_COUNT / 2);
         System.out.println("ВАЖНОЕ ОБЪЯВЛЕНИЕ >>> Подготовка!!!");
         Race race = new Race(new Road(60), new Tunnel(semaphore), new Road(40));
         Car[] cars = new Car[CARS_COUNT];
@@ -27,7 +27,7 @@ public class MainClass {
         }
         try {
             cd.await();
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         System.out.println("ВАЖНОЕ ОБЪЯВЛЕНИЕ >>> Гонка началась!!!");
@@ -44,9 +44,9 @@ public class MainClass {
 
         System.out.println("ВАЖНОЕ ОБЪЯВЛЕНИЕ >>> Итоги заезда:");
         System.out.printf("1 место занял %s. Он получает золотую медаль.", Car.getPlaceMap().get(1));
-        System.out.printf("\n2 место занял %s. Он получает серебрянную медаль.",  Car.getPlaceMap().get(2));
-        System.out.printf("\n3 место занял %s. Он получает бронзовую медаль.",  Car.getPlaceMap().get(3));
-        System.out.printf("\n4 место занял %s. Он получает железную медаль.",  Car.getPlaceMap().get(4));
+        System.out.printf("\n2 место занял %s. Он получает серебрянную медаль.", Car.getPlaceMap().get(2));
+        System.out.printf("\n3 место занял %s. Он получает бронзовую медаль.", Car.getPlaceMap().get(3));
+        System.out.printf("\n4 место занял %s. Он получает железную медаль.", Car.getPlaceMap().get(4));
     }
 }
 
